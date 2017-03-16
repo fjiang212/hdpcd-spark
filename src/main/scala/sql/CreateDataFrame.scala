@@ -1,14 +1,18 @@
-package sql.object1
+package sql
 
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
 
 object CreateDataFrame {
-    val conf = new SparkConf().setAppName("Spark SQL basic example").setMaster("spark:\\l27.0.0.1:7077")
+  def main(args: Array[String]) {
+    val conf = new SparkConf().setAppName("Spark SQL basic example").setMaster("local")
     val sc = new SparkContext(conf)
-    
-    //val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-    //val df = sqlContext.read.json("examples/src/main/resources/people.json")
 
+    val inputPath = args(0)
     
+    val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+    val df = sqlContext.read.json(inputPath)
+    
+    df.show()
+  }
 }
