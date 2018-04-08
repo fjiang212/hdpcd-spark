@@ -18,11 +18,11 @@ Setup Eclipse project with sbt
 Start spark cluster in HDP 2.4
 ---------------------
 - Start cluster 
-    
+```    
     cd /usr/hdp/2.4.0.0-169/spark/sbin
     ./start-master.sh
     ./start-slave.sh spark://10.0.2.15:7077
-    
+```    
 - Check Spark cluster in the UI
 
   <http://localhost:8090/>
